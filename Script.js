@@ -158,3 +158,20 @@ index 0000000000000000000000000000000000000000..ee2a088ff6bbbd47e97d451562a8f168
 +renderSkeletons();
 +setTimeout(renderCategories, 1100);
 +renderProducts();
+function becomePartner() {
+  const email = document.getElementById("partnerEmail").value;
+
+  if (!email) {
+    alert("Please enter your email");
+    return;
+  }
+
+  const ownerEmail = "gamerkrishna2210@gmail.com";
+
+  const subject = "Grozo Partner Request";
+  const body = `Hello, I want to become a Grozo partner.\nMy Email: ${email}`;
+
+  const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${ownerEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  window.open(mailtoLink, "_blank");
+}
