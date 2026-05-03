@@ -89,7 +89,25 @@ index 0000000000000000000000000000000000000000..3c7e8d4dab2acddc298823aa51115ec5
 +        <div id="productsGrid" class="product-grid"></div>
 +      </section>
 +    </main>
-+
++<!-- Become Partner Section -->
+<section style="padding:50px;text-align:center;background:#f9f9f9;margin-top:40px;">
+  <h2 style="font-size:28px;">Become a Grozo Partner 🤝</h2>
+  <p style="color:#555;">Enter your Gmail and connect with us</p>
+
+  <input 
+    type="email" 
+    id="partnerEmail" 
+    placeholder="Enter your Gmail" 
+    style="padding:12px;width:260px;border-radius:8px;border:1px solid #ccc;margin-top:10px;"
+  />
+
+  <br><br>
+
+  <button onclick="becomePartner()" 
+    style="padding:12px 24px;background:black;color:white;border:none;border-radius:8px;cursor:pointer;">
+    Become Partner
+  </button>
+</section>
 +    <footer>
 +      <p>GROZO • Built for speed, freshness, and delight.</p>
 +    </footer>
