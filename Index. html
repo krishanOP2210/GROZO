@@ -1,131 +1,44 @@
-diff --git a/index.html b/index.html
-new file mode 100644
-index 0000000000000000000000000000000000000000..3c7e8d4dab2acddc298823aa51115ec59ad61c1e
---- /dev/null
-+++ b/index.html
-@@ -0,0 +1,107 @@
-+<!DOCTYPE html>
-+<html lang="en">
-+  <head>
-+    <meta charset="UTF-8" />
-+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+    <title>GROZO | 10-Minute Grocery Delivery</title>
-+    <link rel="preconnect" href="https://fonts.googleapis.com" />
-+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-+    <link
-+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans:wght@500;600;700&display=swap"
-+      rel="stylesheet"
-+    />
-+    <link rel="stylesheet" href="styles.css" />
-+  </head>
-+  <body>
-+    <div class="noise-overlay" aria-hidden="true"></div>
-+    <header class="site-header glass">
-+      <div class="brand-wrap">
-+        <div class="brand-cube" aria-hidden="true"></div>
-+        <h1>GROZO</h1>
-+      </div>
-+      <nav class="nav-links" aria-label="Main navigation">
-+        <a href="#trending">Trending</a>
-+        <a href="#categories">Categories</a>
-+        <a href="#about">About</a>
-+      </nav>
-+      <div class="header-actions">
-+        <label for="language" class="visually-hidden">Language</label>
-+        <select id="language" class="language-toggle" aria-label="Language">
-+          <option value="en">English</option>
-+          <option value="hi">हिन्दी</option>
-+          <option value="ta">தமிழ்</option>
-+        </select>
-+        <button id="cartBtn" class="cart-btn" aria-label="Shopping cart">
-+          🛒
-+          <span id="cartCount" class="cart-count">0</span>
-+        </button>
-+      </div>
-+    </header>
-+
-+    <main>
-+      <section class="hero" id="about">
-+        <div class="hero-content">
-+          <span class="badge express">⚡ 10-minute delivery</span>
-+          <h2>Fresh groceries delivered before your tea gets cold.</h2>
-+          <p>
-+            Experience premium quick-commerce with lightning-fast delivery,
-+            hyperlocal inventory, and curated essentials across India.
-+          </p>
-+          <div class="search-shell glass">
-+            <input
-+              id="searchInput"
-+              type="search"
-+              placeholder="Search for mangoes, milk, or chips"
-+              autocomplete="off"
-+            />
-+            <button id="searchBtn">Search</button>
-+            <ul id="searchSuggestions" class="suggestions" aria-live="polite"></ul>
-+          </div>
-+        </div>
-+        <div class="hero-visual" aria-hidden="true">
-+          <div class="iso-stage">
-+            <div class="floating mango"></div>
-+            <div class="floating chips"></div>
-+            <div class="floating greens"></div>
-+          </div>
-+        </div>
-+      </section>
-+
-+      <section id="categories" class="categories">
-+        <div class="section-heading">
-+          <h3>Live inventory categories</h3>
-+          <span class="badge live">● Updating in real-time</span>
-+        </div>
-+        <div id="categoryGrid" class="category-grid"></div>
-+      </section>
-+
-+      <section id="trending" class="trending">
-+        <div class="section-heading">
-+          <h3>Trending Near You</h3>
-+          <span class="badge discount">₹ Deals</span>
-+        </div>
-+        <div id="productsGrid" class="product-grid"></div>
-+      </section>
-+    </main>
-+<!-- Become Partner Section -->
-<section style="padding:50px;text-align:center;background:#f9f9f9;margin-top:40px;">
-  <h2 style="font-size:28px;">Become a Grozo Partner 🤝</h2>
-  <p style="color:#555;">Enter your Gmail and connect with us</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GROZO</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-  <input 
-    type="email" 
-    id="partnerEmail" 
-    placeholder="Enter your Gmail" 
-    style="padding:12px;width:260px;border-radius:8px;border:1px solid #ccc;margin-top:10px;"
-  />
+<body>
+
+<header class="site-header">
+  <h1>GROZO ⚡</h1>
+  <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+</header>
+
+<main>
+
+  <!-- SEARCH -->
+  <input id="searchInput" placeholder="Search groceries..." />
+
+  <!-- CATEGORIES -->
+  <div id="categoryGrid" class="category-grid"></div>
+
+  <!-- PRODUCTS -->
+  <div id="productsGrid" class="product-grid"></div>
+
+</main>
+
+<!-- ✅ PARTNER SECTION -->
+<section class="partner">
+  <h2>Become a Grozo Partner 🤝</h2>
+  <p>Enter your Gmail and connect with us</p>
+
+  <input type="email" id="partnerEmail" placeholder="Enter your Gmail" />
 
   <br><br>
 
-  <button onclick="becomePartner()" 
-    style="padding:12px 24px;background:black;color:white;border:none;border-radius:8px;cursor:pointer;">
-    Become Partner
-  </button>
+  <button onclick="becomePartner()">Become Partner</button>
 </section>
-+    <footer>
-+      <p>GROZO • Built for speed, freshness, and delight.</p>
-+    </footer>
-+
-+    <template id="productCardTemplate">
-+      <article class="product-card glass">
-+        <div class="product-visual"></div>
-+        <div class="product-meta">
-+          <h4 class="product-name"></h4>
-+          <p class="product-desc"></p>
-+          <div class="card-row">
-+            <strong class="price"></strong>
-+            <button class="add-btn">Add to Cart</button>
-+          </div>
-+        </div>
-+      </article>
-+    </template>
-+
-+    <script src="script.js"></script>
-+  </body>
-+</html>
+
+<script src="script.js"></script>
+</body>
+</html>
