@@ -158,6 +158,7 @@ index 0000000000000000000000000000000000000000..ee2a088ff6bbbd47e97d451562a8f168
 +renderSkeletons();
 +setTimeout(renderCategories, 1100);
 +renderProducts();
+
 function becomePartner() {
   const email = document.getElementById("partnerEmail").value;
 
