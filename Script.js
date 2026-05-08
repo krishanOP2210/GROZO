@@ -2,9 +2,26 @@
 const categories = ["Fruits", "Dairy", "Snacks"];
 
 const products = [
-  { name: "Banana", price: 40, category: "Fruits" },
-  { name: "Milk", price: 60, category: "Dairy" },
-  { name: "Chips", price: 20, category: "Snacks" }
+  {
+    name: "Banana",
+    price: 40,
+    category: "Fruits",
+    image: "https://images.unsplash.com/photo-1574226516831-e1dff420e37f"
+  },
+
+  {
+    name: "Milk",
+    price: 60,
+    category: "Dairy",
+    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150"
+  },
+
+  {
+    name: "Chips",
+    price: 20,
+    category: "Snacks",
+    image: "https://images.unsplash.com/photo-1585238342024-78d387f4a707"
+  }
 ];
 
 // ELEMENTS
