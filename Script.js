@@ -1,118 +1,55 @@
-// DATA
-const categories = ["Fruits", "Dairy", "Snacks"];
-
-const products = [
-  {
-    name: "Banana",
-    price: 40,
-    category: "Fruits",
-    image: "https://images.unsplash.com/photo-1574226516831-e1dff420e37f"
-  },
-
-  {
-    name: "Milk",
-    price: 60,
-    category: "Dairy",
-    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150"
-  },
-
-  {
-    name: "Chips",
-    price: 20,
-    category: "Snacks",
-    image: "https://images.unsplash.com/photo-1585238342024-78d387f4a707"
-  }
-];
-
-// ELEMENTS
-const categoryGrid = document.getElementById("categoryGrid");
-const productsGrid = document.getElementById("productsGrid");
-const cartCount = document.getElementById("cartCount");
-const searchInput = document.getElementById("searchInput");
+// =========================
+// FILE NAME: script.js
+// =========================
 
 let cart = 0;
 
-// SHOW CATEGORIES
-categories.forEach(cat => {
-  const div = document.createElement("div");
-  div.className = "card";
-  div.innerText = cat;
+function addToCart(){
 
-  div.onclick = () => showProducts(cat);
+  cart++;
 
-  categoryGrid.appendChild(div);
-});
+  document.getElementById("cart-count").innerText = cart;
 
-// SHOW PRODUCTS
-function showProducts(filter = "All") {
-  productsGrid.innerHTML = "";
+  alert("Product Added To Cart");
 
-  products
-    .filter(p => filter === "All" || p.category === filter)
-    .forEach(item => {
-      const div = document.createElement("div");
-      div.className = "card";
-
-      div.innerHTML = `
-        <h3>${item.name}</h3>
-        <p>₹${item.price}</p>
-        <button>Add</button>
-      `;
-
-      div.querySelector("button").onclick = () => {
-        cart++;
-        cartCount.innerText = cart;
-      };
-
-      productsGrid.appendChild(div);
-    });
 }
 
-// SEARCH
-searchInput.addEventListener("input", () => {
-  const value = searchInput.value.toLowerCase();
+function searchProduct(){
 
-  productsGrid.innerHTML = "";
+  const value =
+    document.getElementById("searchInput").value;
 
-  products
-    .filter(p => p.name.toLowerCase().includes(value))
-    .forEach(item => {
-      const div = document.createElement("div");
-      div.className = "card";
+  if(value === ""){
+    alert("Please enter product name");
+  }
+  else{
+    alert("Searching for: " + value);
+  }
 
-      div.innerHTML = `
-        <h3>${item.name}</h3>
-        <p>₹${item.price}</p>
-        <button>Add</button>
-      `;
+}
 
-      div.querySelector("button").onclick = () => {
-        cart++;
-        cartCount.innerText = cart;
-      };
+function becomePartner(){
 
-      productsGrid.appendChild(div);
-    });
-});
+  const email =
+    document.getElementById("partnerEmail").value;
 
-// INITIAL LOAD
-showProducts();
-
-// ✅ PARTNER FUNCTION
-function becomePartner() {
-  const email = document.getElementById("partnerEmail").value;
-
-  if (!email) {
-    alert("Enter your email");
+  if(email === ""){
+    alert("Please enter your Gmail");
     return;
   }
 
-  const ownerEmail = "gamerkrishna2210@gmail.com";
+  const ownerEmail =
+    "gamerkrishna2210@gmail.com";
 
-  const subject = "Grozo Partner Request";
-  const body = `Hello, I want to become a partner.\nMy email: ${email}`;
+  const subject =
+    "Grozo Partner Request";
 
-  const link = `https://mail.google.com/mail/?view=cm&fs=1&to=${ownerEmail}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const body =
+    `Hello, I want to become a Grozo partner.%0D%0AMy Email: ${email}`;
 
-  window.open(link, "_blank");
+  const gmailLink =
+    `https://mail.google.com/mail/?view=cm&fs=1&to=${ownerEmail}&su=${subject}&body=${body}`;
+
+  window.open(gmailLink, "_blank");
+
 }
