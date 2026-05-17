@@ -1,44 +1,133 @@
+<!-- ========================= -->
+<!-- FILE NAME: index.html -->
+<!-- ========================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GROZO</title>
+  <title>GROZO - Grocery Delivery</title>
+
   <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="site-header">
-  <h1>GROZO ⚡</h1>
-  <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
-</header>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">⚡ GROZO</div>
 
-<main>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Categories</a>
+      <a href="#">Products</a>
+      <a href="#">Partner</a>
+    </nav>
 
-  <!-- SEARCH -->
-  <input id="searchInput" placeholder="Search groceries..." />
+    <button class="cart-btn">
+      🛒 Cart <span id="cart-count">0</span>
+    </button>
+  </header>
 
-  <!-- CATEGORIES -->
-  <div id="categoryGrid" class="category-grid"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Groceries Delivered in 10 Minutes</h1>
+      <p>
+        Fresh vegetables, fruits, snacks, dairy and more delivered instantly.
+      </p>
+
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products...">
+        <button onclick="searchProduct()">Search</button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop" alt="Groceries">
+    </div>
+  </section>
+
+  <!-- CATEGORY -->
+  <section class="categories">
+    <h2>Categories</h2>
+
+    <div class="category-grid">
+      <div class="category-card">🥭 Fruits</div>
+      <div class="category-card">🥛 Dairy</div>
+      <div class="category-card">🍞 Bakery</div>
+      <div class="category-card">🍟 Snacks</div>
+    </div>
+  </section>
 
   <!-- PRODUCTS -->
-  <div id="productsGrid" class="product-grid"></div>
+  <section class="products">
+    <h2>Trending Products</h2>
 
-</main>
+    <div class="product-grid" id="product-grid">
 
-<!-- ✅ PARTNER SECTION -->
-<section class="partner">
-  <h2>Become a Grozo Partner 🤝</h2>
-  <p>Enter your Gmail and connect with us</p>
+      <div class="product-card">
+        <img src="https://source.unsplash.com/300x300/?banana" alt="">
+        <h3>Bananas</h3>
+        <p>Fresh bananas - 6 pcs</p>
+        <h4>₹40</h4>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
 
-  <input type="email" id="partnerEmail" placeholder="gamerkrishna2210@gmail.com" />
+      <div class="product-card">
+        <img src="https://source.unsplash.com/300x300/?milk" alt="">
+        <h3>Milk</h3>
+        <p>Fresh dairy milk - 1L</p>
+        <h4>₹60</h4>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
 
-  <br><br>
+      <div class="product-card">
+        <img src="https://source.unsplash.com/300x300/?bread" alt="">
+        <h3>Bread</h3>
+        <p>Soft bread - 400g</p>
+        <h4>₹30</h4>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
 
-  <button onclick="becomePartner()">Become Partner</button>
-</section>
+      <div class="product-card">
+        <img src="https://source.unsplash.com/300x300/?chips" alt="">
+        <h3>Chips</h3>
+        <p>Crispy potato chips</p>
+        <h4>₹20</h4>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
 
-<script src="script.js"></script>
+    </div>
+  </section>
+
+  <!-- PARTNER -->
+  <section class="partner-section">
+    <h2>Become a GROZO Partner 🤝</h2>
+
+    <p>Enter your Gmail to contact us</p>
+
+    <input
+      type="email"
+      id="partnerEmail"
+      placeholder="Enter your Gmail"
+    >
+
+    <button onclick="becomePartner()">
+      Become Partner
+    </button>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 GROZO • SPEED REDEFINED</p>
+  </footer>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
